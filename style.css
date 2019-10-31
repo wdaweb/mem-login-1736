@@ -10,6 +10,8 @@
   margin:30px  auto 0 auto;
   border:1px solid #999;
   padding:20px;
+  box-shadow:2px 3px 5px #888;
+border:solid 3px brown;
 }
 .wrapper{
   width:350px;

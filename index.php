@@ -7,8 +7,17 @@
   <link rel="shortcut icon" href="#" type="image/x-icon">
   <title>註冊登入系統</title>
   <link rel="stylesheet" href="style.css">
+  <!-- 引入外部檔案 -->
 </head>
 <body>
+  <?php
+if(!empty($_GET['s'])){
+  echo "註冊成功,請輸入帳密已登入"; 
+}
+
+
+
+?>
   <h1>會員登入</h1>
 <form action="login_api.php" method="post"> 
 <table class="wrapper">
