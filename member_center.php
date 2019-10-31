@@ -1,4 +1,10 @@
-<?php include "base.php"; ?>
+<?php
+ include "base.php"; 
+
+if(empty($_COOKIE['login'])){
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +34,7 @@ td{
 <?php
 
 
-$sql="select * from user where id='".$_GET['id']."'";
+$sql="select * from user where id='".$_COOKIE['id']."'";
 // echo $sql;
 $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 // print_r($user);
@@ -75,6 +81,7 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 
 
     </div>
+    <a href="index.php">回首頁</a>
   </div>
 </body>
 </html>

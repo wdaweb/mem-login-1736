@@ -1,4 +1,9 @@
-<?php  include "base.php";   ?>
+<?php  
+session_start();
+if(!empty($_COOKIE['login'])){
+  header("location:member_center.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
