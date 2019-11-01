@@ -14,18 +14,19 @@ if(empty($_SESSION['login'])){
   <title>會員中心</title>
   <link rel="stylesheet" href="style.css">
   <style>
-td{
-  border:1px solid black;
-  width:150px;
-  height:20px;
-}
+      td{
+    border:1px solid black;
+    width:200px;
+    height:30px;
+   }
   
   
+   
   </style>
 </head>
 <body>
   <div class="member">
-    <div class="wellcome">
+    <div class="wellcome" >
       HI! 歡迎光臨!以下是你的個人資料:
       <a href="logout.php">登出</a>
     </div>
@@ -39,6 +40,7 @@ $sql="select * from user where id='".$_SESSION['id']."'";
 $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 // print_r($user);
 ?>
+<form action="edit_user.php" method="post">
 <table>
   <tr>
     <td>id</td>
@@ -54,33 +56,38 @@ $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
   </tr>
   <tr>
     <td>name</td>
-    <td><?=$user['name'];?></td>
+    <td><input type="text" name="name" id="name" value="<?=$user['name'];?>"></td>
   </tr>
   <tr>
     <td>addr</td>
-    <td><?=$user['addr'];?></td>
+    <td><input type="text" name="addr" id="addr" value="<?=$user['addr'];?>"></td>
   </tr>
   <tr>
     <td>tel</td>
-    <td><?=$user['tel'];?></td>
+    <td><input type="text" name="tel" id="tel" value="<?=$user['tel'];?>"></td>
   </tr>
   <tr>
     <td>birthday</td>
-    <td><?=$user['birthday'];?></td>
+    <td><input type="text" name="birthday" id="birthday" value="<?=$user['birthday'];?>"></td>
   </tr>
   <tr>
     <td>email</td>
-    <td><?=$user['email'];?></td>
+    <td><input type="text" name="email" id="email" value="<?=$user['email'];?>"></td>
+  </tr>
+  <tr>
+  <td colspan="2">
+   <input type="hidden" name="id" value="<?=$user['id'];?>">
+    <input type="submit" value="編輯">
+  </td>
   </tr>
 </table>
+</form>
 
 
 
 
 
 
-
-    </div>
-  </div>
+    
 </body>
 </html>
