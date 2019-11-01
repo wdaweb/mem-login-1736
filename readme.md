@@ -7,5 +7,6 @@
   
  ## 2019-10-31
  不同方式登入及判斷式SQL語法
- 說明Github使用
+ 說明Github使用SESSION和COOLIE
+ SESSION-登出方式
   

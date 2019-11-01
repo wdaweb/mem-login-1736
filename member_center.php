@@ -1,4 +1,9 @@
-<?php include "base.php"; ?>
+<?php include "base.php"; 
+if(empty($_SESSION['login'])){
+  header("location:index.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +27,14 @@ td{
   <div class="member">
     <div class="wellcome">
       HI! 歡迎光臨!以下是你的個人資料:
+      <a href="logout.php">登出</a>
     </div>
     <div class="private">
       <!--請自行設計個人資料的呈現方式並從資料庫取得會員資料-->
 <?php
 
 
-$sql="select * from user where id='".$_GET['id']."'";
+$sql="select * from user where id='".$_SESSION['id']."'";
 // echo $sql;
 $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 // print_r($user);

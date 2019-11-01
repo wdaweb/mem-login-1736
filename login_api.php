@@ -14,8 +14,8 @@
   echo " acc= ". $acc;
   echo "<br>";
   echo " pw= " . $pw;
-  $dsn="mysql:host=localhost;charset=utf8;dbname=mydb";
-  $pdo=new PDO($dsn,'root','0970431566');
+  // $dsn="mysql:host=localhost;charset=utf8;dbname=mydb";
+  // $pdo=new PDO($dsn,'root','0970431566');
 
   // $sql="select count(*) as 'r' from user where `acc`='$acc' && `pw`='$pw'";
 
@@ -27,7 +27,9 @@
 
 if(!empty($data)) {
     echo "登入成功";
-    header("location:member_center.php?id=".$data['id']);
+  $_SESSION['login']=1;
+  $_SESSION['id']=$data['id'];
+    header("location:member_center.php");
   }else{
     echo "登入失敗";
     header("location:index.php?err=1");
