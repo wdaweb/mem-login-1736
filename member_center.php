@@ -1,7 +1,8 @@
 <?php
- include "base.php"; 
+ include_once "base.php"; 
 
 if(empty($_COOKIE['login'])){
+  header("localtion:index.php");
   exit();
 }
 ?>
@@ -20,11 +21,10 @@ td{
   width:150px;
   height:20px;
 }
-  
-  
   </style>
 </head>
 <body>
+
   <div class="member">
     <div class="wellcome">
       HI! 歡迎光臨!以下是你的個人資料:
@@ -39,6 +39,7 @@ $sql="select * from user where id='".$_COOKIE['id']."'";
 $user=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 // print_r($user);
 ?>
+<a href="logout.php">登出</a>
 <table>
   <tr>
     <td>id</td>

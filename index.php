@@ -1,8 +1,9 @@
 <?php  
 session_start();
 if(!empty($_COOKIE['login'])){
-  header("location:member_center.php");
+  header("location:member_center.php?tuuu=5767");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
